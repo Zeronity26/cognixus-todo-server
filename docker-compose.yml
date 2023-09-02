@@ -13,6 +13,8 @@ services:
         condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/Cognixus
+    networks:
+      - todo-mysql-network
     env_file: .env
   mysqldb:
     container_name: mysqldb
@@ -25,10 +27,14 @@ services:
       MYSQL_USER: jeremygan96
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - todo-mysql-network
     healthcheck:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uroot", "-p$${MYSQL_PASSWORD}"]
       interval: 5s
       timeout: 5s
       retries: 20
     env_file: .env
-
+networks:
+  todo-mysql-network:
+    driver: bridge
