@@ -24,7 +24,7 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/todo")
+@RequestMapping("/v1/todo")
 @RequiredArgsConstructor
 public class TodoController {
     private final TodoItemService todoItemService;

@@ -3,6 +3,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+# should exclude .env from commit file as it includes sensitive environment variables
+#.env
 
 ### STS ###
 .apt_generated
