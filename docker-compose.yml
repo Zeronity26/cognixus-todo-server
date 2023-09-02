@@ -11,6 +11,8 @@ services:
     depends_on:
       mysqldb:
         condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/Cognixus
     env_file: .env
   mysqldb:
     container_name: mysqldb
