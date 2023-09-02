@@ -6,26 +6,25 @@ Navigate to directory that contains pom.xml file and run the following command t
 
 >mvn spring-boot:run
 
-<br>**Note:** The command above unable to start the application if the database is not ready. Therefore, please ensure that your machine is running a MySQL server which lies on port 3306 and contains a database  named as "Cognixus".<br/>
-Alternatively, you can replace the value of properties from [application.properties](src/main/resources/application.properties)
+<br>**Note:** Please ensure that your machine is running a MySQL server which lies on port 3306, else the application is unable to start.<br/>
+Alternatively, you can replace the value of database configuration from [application.properties](src/main/resources/application.properties)
 
 ![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/7a67a5d0-9242-414a-bf2e-8ca29b3a30a7)
 
 <br>
 
 ### 1.2 Running App using Docker command
-Navigate to directory that contains docker-compose.yml file and run the following command to start the app:
+Navigate to directory that contains docker-compose.yml file and run the below command to start the app:
 
 >docker compose up
 
-<br>Docker will download the images that defined in docker-compose.yml file initially if your machine doesn't exists it. Then, the container will start after those images are ready or start directly if those images are already existsed. 
-The datasource credentials that set in docker-compoese.yml is obtained from [.env](.env)
+<br>Above command will trigger Docker to download images that defined in docker-compose.yml file initially if your machine doesn't exists it and run it afterwards. 
+The datasource credentials that set in docker-compose.yml is obtained from [.env](.env)
 
 ***
 
 ## 2. Instruction for testing the app
-All API end points of the application requires user to be authenticated except Oauth API end points, so user needs to include the bearer token in authorization header to trigger those API end points successfully.<br>
-Currently, the application is only available for Gmail user to access.
+Currently, application is only available for Gmail user.
 
 ### 2.1 Login Gmail Account and Generate Bearer Token
 **Note:** generated bearer token will expire after an hour, so need to generate it again after it is expired.<br>
@@ -51,7 +50,7 @@ Below is an example of using postman to send request to add todo item. Before ex
 ***
 
 ## 3. Instruction for building the app
-### 3.1 Build app with Maven command
+### 3.1 Build app using Maven command
 Navigate to directory that exists pom.xml and run following maven command to clean and build the application.<br>
 After run the command, it will generate a java jar file of the application in target directory.
 >mvn clean install
