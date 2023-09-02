@@ -7,5 +7,6 @@ create table if not exists tb_todo_item(
     create_time datetime not null default CURRENT_TIMESTAMP,
     update_time datetime not null default CURRENT_TIMESTAMP,
     is_deleted tinyint(1) not null,
-	primary key (`id`)
+	primary key `pk_todo_item` (`id`),
+	index `idx_todo_item_user_id_is_deleted`(user_id,is_deleted)
 );
