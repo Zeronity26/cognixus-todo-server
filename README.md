@@ -1,8 +1,7 @@
 # Cognixus Todo Server
-## Introduction
 
 ## 1. Instruction for running the app
-### 1.1 Running App with Maven command
+### 1.1 Running App using Maven command
 Navigate to directory that contains pom.xml file and run the following command to start the app:
 
 >mvn spring-boot:run
@@ -14,7 +13,7 @@ Alternatively, you can replace the value of properties from [application.propert
 
 <br>
 
-### 1.2 Running App with Docker container
+### 1.2 Running App using Docker command
 Navigate to directory that contains docker-compose.yml file and run the following command to start the app:
 
 >docker compose up
@@ -39,12 +38,12 @@ First, open below url via browser and login your Gmail account
 After login Gmail account, it will output result that includes bearer token. Extract the value of **id_token** from the result and keep it for further action.
 ![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/08b4646c-fb5f-46c3-8960-2f254f50df94)
 
-### 2.2 Send Request
-#### 2.2.1 Send Request with cURL
+### 2.2 API Call
+#### 2.2.1 API Call with cURL
 Below is an example of cURL request to add todo item. Before execute the request, need to replace **$token** with bearer token that retrieved from above action 
 >curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "{\"name\": \"Todo name\",\"description\": \"Todo description\"}" http://localhost:8080/api/v1/todo
 
-#### 2.2.2 Send Request with Postman
+#### 2.2.2 API Call with Postman
 Below is an example of using postman to send request to add todo item. Before execute the request, need to set bearer token to the token field which is under the authorization tab.
 ![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/e0eda820-eaf5-414d-bc6f-6b421896d7c1)
 ![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/e24c30df-d895-4745-ac18-e7f6b5d67082)
@@ -57,7 +56,7 @@ Navigate to directory that exists pom.xml and run following maven command to cle
 After run the command, it will generate a java jar file of the application in target directory.
 >mvn clean install
 
-### 3.2 Build app with Docker
+### 3.2 Build docker image of app using Docker command
 After executes maven command to build the application, run below docker command to build docker image of the application as the docker image is generated based on the jar file.<br>
 Run below command under directory that contains Dockerfile.
 >docker build -t $imageName:$tagName .
