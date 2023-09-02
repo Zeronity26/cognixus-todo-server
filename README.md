@@ -10,7 +10,7 @@ Navigate to directory that contains pom.xml file and run the following command t
 <br>**Note:** The command above unable to start the application if the database is not ready. Therefore, please ensure that your machine is running a MySQL server which lies on port 3306 and contains a database  named as "Cognixus".<br/>
 Alternatively, you can replace the value of properties from [application.properties](src/main/resources/application.properties)
 
-![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/66752bd5-98d3-4d27-a2c8-28d131545eb0)
+![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/7a67a5d0-9242-414a-bf2e-8ca29b3a30a7)
 
 <br>
 
@@ -33,10 +33,11 @@ Currently, the application is only available for Gmail user to access.
 First, open below url via browser and login your Gmail account
 >http://localhost:8080/api/oauth/google/login
 
-![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/a1d49f3d-f574-4f2a-8113-8d3c8722bf10)
+![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/9fa07303-663c-4294-ab0e-04e67a3d4913)
+
 
 After login Gmail account, it will output result that includes bearer token. Extract the value of **id_token** from the result and keep it for further action.
-![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/b8fd2bfc-1e67-474b-a148-0d59a6557d9f)
+![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/08b4646c-fb5f-46c3-8960-2f254f50df94)
 
 ### 2.2 Send Request
 #### 2.2.1 Send Request with cURL
@@ -45,8 +46,8 @@ Below is an example of cURL request to add todo item. Before execute the request
 
 #### 2.2.2 Send Request with Postman
 Below is an example of using postman to send request to add todo item. Before execute the request, need to set bearer token to the token field which is under the authorization tab.
-![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/58a0803a-119a-4f9d-a20a-f07fdd5f4dc5)
-![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/0c4f486b-a5ee-4988-b5b9-b87c943cbf2d)
+![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/e0eda820-eaf5-414d-bc6f-6b421896d7c1)
+![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/e24c30df-d895-4745-ac18-e7f6b5d67082)
 
 ***
 
