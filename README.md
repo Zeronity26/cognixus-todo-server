@@ -24,10 +24,12 @@ Navigate to directory that contains docker-compose.yml file and run the below co
 First, open below url via browser and login your Gmail account
 >**http://localhost:8080/api/oauth/google/login**
 
+<br>Screenshot of Google login page:<br>
 ![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/9fa07303-663c-4294-ab0e-04e67a3d4913)
 
 
-After login Gmail account, it will output result that includes bearer token. Extract the value of **id_token** from the result and keep it for further action.
+After login Gmail account, it will output result that includes bearer token. Extract the value of **id_token** from the result and keep it for further action. 
+
 ![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/08b4646c-fb5f-46c3-8960-2f254f50df94)
 
 ### 2. API Call with curl
