@@ -30,17 +30,10 @@ First, open below url via browser and login your Gmail account
 After login Gmail account, it will output result that includes bearer token. Extract the value of **id_token** from the result and keep it for further action.
 ![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/08b4646c-fb5f-46c3-8960-2f254f50df94)
 
-### 2. API Call
-#### 2.1 API Call with cURL
+### 2. API Call with curl
 Need to replace **$token** with bearer token that retrieved from above action before call any API.<br>
 Example:
->curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "{\"name\": \"Todo name\",\"description\": \"Todo description\"}" http://localhost:8080/api/v1/todo
-
-#### 2.2 API Call with Postman
-Need to set bearer token to the token field which is under the authorization tab before call any API.<br>
-Example:
-![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/e0eda820-eaf5-414d-bc6f-6b421896d7c1)
-![image](https://github.com/Zeronity26/cognixus-todo-server/assets/77224053/e24c30df-d895-4745-ac18-e7f6b5d67082)
+>curl -X POST http://localhost:8080/api/v1/todo -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "{\"name\": \"Todo name\",\"description\": \"Todo description\"}"
 
 ***
 
