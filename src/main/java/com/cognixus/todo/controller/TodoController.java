@@ -39,13 +39,12 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> deleteTodoItemById(@PathVariable("id") long id, Principal principal){
         try{
             todoItemService.deleteTodoItemByIdAndUserId(id,principal.getName());
             return ResponseEntity.ok(String.format("Successfully deleted todo item with id: %s", id));
         }catch(TodoItemNotFoundException exception){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(exception.getMessage());
         }
     }
 
@@ -57,13 +56,12 @@ public class TodoController {
     }
 
     @PatchMapping("/{id}/completed")
-    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> patchTodoItemCompleted(@PathVariable("id") long id, Principal principal){
         try{
             todoItemService.markTodoItemCompletedByIdAndUserId(id,principal.getName());
             return ResponseEntity.ok(String.format("Successfully mark todo item as completed with id: %s", id));
         }catch(TodoItemNotFoundException exception){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(exception.getMessage());
         }
     }
 }
