@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(TodoController.class)
 @Disabled
 class TodoControllerTest {
-    private static final String API_PATH_PREFIX = "/api/v1/todo";
+    private static final String API_PATH_PREFIX = "/v1/todo";
     private static final String DELETE_API_PATH = API_PATH_PREFIX+"/1";
     private static final String PATCH_API_PATH = API_PATH_PREFIX+"/1/completed";
     @Value("${bearer.token}")
@@ -87,7 +87,7 @@ class TodoControllerTest {
     void testDeleteTodoItemByIdShouldReturn404ResponseStatus() throws Exception {
         doThrow(new TodoItemNotFoundException()).when(todoItemService).deleteTodoItemByIdAndUserId(anyLong(),anyString());
         mockMvc.perform(delete(DELETE_API_PATH).header("Authorization", "Bearer " + bearerToken))
-                .andExpect(status().isNotFound())
+                .andExpect(status().isNotAcceptable())
                 .andExpect(content().string("Todo Item not found"))
                 .andDo(print());
     }
@@ -118,7 +118,7 @@ class TodoControllerTest {
     void testPatchTodoItemCompletedShouldReturn404ResponseStatus() throws Exception {
         doThrow(new TodoItemNotFoundException()).when(todoItemService).markTodoItemCompletedByIdAndUserId(anyLong(),anyString());
         mockMvc.perform(patch(PATCH_API_PATH).header("Authorization", "Bearer " + bearerToken))
-                .andExpect(status().isNotFound())
+                .andExpect(status().isNotAcceptable())
                 .andExpect(content().string("Todo Item not found"))
                 .andDo(print());
     }
